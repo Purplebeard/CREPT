@@ -11,7 +11,8 @@ import json
 import time
 import random
 
-total_amount_average = 1000
+total_amount = 30000 #total value you need per month
+total_amount_average = total_amount/30
 
 def select_card():
     
@@ -82,7 +83,7 @@ def select_pos():
 def random_amount(amount_range):
     amount = random.randint(0, amount_range)
 
-    # Reduce unexpect value
+    # Reduce unexpected value
     if amount < 100 or amount > 1000:
         amount = random.randint(0, amount_range)
 
