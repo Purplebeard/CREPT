@@ -1,0 +1,34 @@
+{
+	"POSs":[
+		{
+			"name":"快钱",
+			"big_rate":60,
+			"small_rate":38
+		},
+		{
+			"name":"银盛",
+			"big_rate":62,
+			"small_rate":38
+		},
+		{
+			"name":"钱宝",
+			"big_rate":60,
+			"small_rate":38
+		},
+		{
+			"name":"金付通",
+			"big_rate":55,
+			"small_rate":38
+		},
+		{
+			"name":"畅捷",
+			"big_rate":60,
+			"small_rate":38
+		},
+		{
+			"name":"杉德",
+			"big_rate":60,
+			"small_rate":38
+		}
+	]
+}
