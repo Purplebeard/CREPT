@@ -43,10 +43,11 @@ def select_card():
     sequence = sorted(cardslist['cards'], key = lambda x:x["repayment_period"])
     
     # Output format
-    tplt = "{0:^10}\t{1:^10}\t{2:^10}"
-    print(tplt.format("      Name", "      account period", "Due"))
+    #tplt = "{0:^10}\t{1:^10}\t{2:^10}"
+    tplt = "{0:{3}^10}\t{1:{3}^10}\t{2:^10}"
+    print(tplt.format("      Name", "       account period", "       Due", chr(12288)))
     for card in sequence:
-        print(tplt.format(card['name'], card['account_period'], card['repayment_period']))
+        print(tplt.format(card['name'], card['account_period'], card['repayment_period'], chr(12288)))
     
     print("")
     print("Advice Card: " + card['name'])
