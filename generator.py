@@ -28,13 +28,16 @@ def select_card():
         cardslist = json.load(obj)
     for card in cardslist['cards']:
         # account_period means the maxinum interest-free period
-        # repayment period means how many day from today to next repayment data
+        # repayment period means how many days from today to next repayment data
         if card['repayment_date'] > card['statement_date']:
             card['account_period'] = card['repayment_date'] + 30 - card['statement_date']
             card['repayment_period'] = card['repayment_date'] + 30 - date
         else:
             card['account_period'] = card['repayment_date'] + 60 - card['statement_date']
-            card['repayment_period'] = card['repayment_date'] + 30 - date
+            if card['statement_date'] > date:
+                card['repayment_period'] = card['repayment_date'] + 30 - date
+            else:
+                card['repayment_period'] = card['repayment_date'] + 60 - date
 
         if card['account_period'] == card['repayment_period']:
             card['repayment_period'] = card['repayment_period'] - 30
@@ -45,7 +48,7 @@ def select_card():
     # Output format
     #tplt = "{0:^10}\t{1:^10}\t{2:^10}"
     tplt = "{0:{3}^10}\t{1:{3}^10}\t{2:^10}"
-    print(tplt.format("      Name", "       account period", "       Due", chr(12288)))
+    print(tplt.format("       Name", "          Account period", "  Due", chr(12288)))
     for card in sequence:
         print(tplt.format(card['name'], card['account_period'], card['repayment_period'], chr(12288)))
     
@@ -58,13 +61,19 @@ def select_card():
     
     # Generate a random card,
     for card in sequence:
-        card['repayment_period'] = card['repayment_period'] + random.randint(0, 20)
+        card['random_number'] = card['repayment_period'] + random.randint(0, 30)
 
-    sequence = sorted(cardslist['cards'], key = lambda x:x["repayment_period"])
+    sequence = sorted(cardslist['cards'], key = lambda x:x["random_number"])
 
     #for card in sequence:
     #    print(tplt.format(card['name'], card['account_period'], card['repayment_period']))
     
+    tplt = "{0:{2}^10}\t{1:^10}"
+    print("")
+    print(tplt.format("       Name", "          Random", chr(12288)))
+    for card in sequence:
+        print(tplt.format(card['name'], card['random_number'], chr(12288)))
+   
     print("")
     print("Random Card: " + sequence[-1]['name'])
 
