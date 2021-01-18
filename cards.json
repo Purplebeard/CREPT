@@ -54,6 +54,12 @@
 			"type":"银联",
 			"statement_date":3,
 			"repayment_date":23
+		},
+                {
+			"name":"花旗银行礼享卡",
+			"type":"银联",
+			"statement_date":6,
+			"repayment_date":26
 		}
 	]
 }
