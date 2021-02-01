@@ -31,7 +31,10 @@ def select_card():
         # repayment period means how many days from today to next repayment data
         if card['repayment_date'] > card['statement_date']:
             card['account_period'] = card['repayment_date'] + 30 - card['statement_date']
-            card['repayment_period'] = card['repayment_date'] + 30 - date
+            if card['statement_date'] > date:
+                card['repayment_period'] = card['repayment_date'] - date
+            else:
+                card['repayment_period'] = card['repayment_date'] + 30 - date
         else:
             card['account_period'] = card['repayment_date'] + 60 - card['statement_date']
             if card['statement_date'] > date:
