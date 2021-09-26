@@ -21,8 +21,8 @@
 		{
 			"name":"上海银行美团联名卡",
 			"type":"银联",
-			"statement_date":15,
-			"repayment_date":9
+			"statement_date":27,
+			"repayment_date":21
 		},
 		{
 			"name":"盛京银行京东联名卡",
@@ -72,6 +72,13 @@
             "type":"银联",
             "statement_date":1,
             "repayment_date":25
+        },
+        {
+            "name":"宁波银行Safari卡",
+            "type":"银联",
+            "statement_date":25,
+            "repayment_date":20
         }
+
     ]
 }
